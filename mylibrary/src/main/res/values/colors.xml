@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="appBg">#F6F6F6</color>
+    <color name="appDivide">#DCDCDC</color>
+
+
+    <color name="tv_333">#333333</color><!--文本深黑色1 -->
+    <color name="tv_666">#666666</color><!--文本深灰色2 -->
+    <color name="tv_999">#999999</color><!--文本浅灰色3 -->
+
+
+</resources>
