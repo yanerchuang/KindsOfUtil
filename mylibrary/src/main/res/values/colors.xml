@@ -10,4 +10,11 @@
     <color name="tv_999">#999999</color><!--文本浅灰色3 -->
 
 
+
+
+
+    <color name="white">#ffffff</color><!--白色 -->
+    <color name="bg_img_gray">#D8D8D8</color><!--灰色 -->
+    <color name="gray_ccc">#ccc</color><!--灰色 -->
+
 </resources>

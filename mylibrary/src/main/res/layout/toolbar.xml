@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@drawable/shape_toolbar_bg"
+    android:gravity="center"
+    app:contentInsetStart="0dp">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/selector_toolbar_back_press"
+        android:paddingLeft="5dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_left_arrow_black" />
+
+    <TextView
+        android:id="@+id/tv_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/selector_toolbar_back_press"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="20dp"
+        android:text="left"
+        android:textColor="@color/tv_333"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/tv_333"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/iv_right"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:background="@drawable/selector_toolbar_back_press"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:scaleType="centerInside"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:background="@drawable/selector_toolbar_back_press"
+        android:gravity="center"
+        android:padding="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/tv_333"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+</android.support.v7.widget.Toolbar>

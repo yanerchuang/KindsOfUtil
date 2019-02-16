@@ -1,0 +1,43 @@
+<resources>
+
+
+    <!--<style name="AppSplash" parent="AppTheme">-->
+        <!--<item name="android:windowFullscreen">true</item>-->
+        <!--<item name="android:windowContentOverlay">@null</item>-->
+        <!--&lt;!&ndash;<item name="android:windowBackground">@drawable/image_app_splash_bg</item>&ndash;&gt;-->
+        <!--<item name="android:windowNoTitle">true</item>-->
+    <!--</style>-->
+
+    <style name="dialog_common" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsFloating">true</item><!-- 是否悬浮在activity上 -->
+        <item name="android:windowIsTranslucent">true</item><!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item><!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item><!-- 模糊 -->
+        <item name="android:windowFrame">@null</item><!-- 边框 -->
+        <item name="android:backgroundDimAmount">0.5</item><!-- 灰度 -->
+        <item name="android:windowContentOverlay">@null</item><!-- 对话框是否有遮盖 -->
+        <item name="android:colorBackgroundCacheHint">#ffffff</item><!-- 背景缓存颜色 -->
+    </style>
+
+    <style name="AppProgressBarStyle" parent="@android:style/Widget.ProgressBar">
+        <item name="android:indeterminateDrawable">@drawable/shape_progress_bar</item>
+        <item name="android:indeterminateDuration">1000</item>
+    </style>
+
+
+    <style name="popupwindow_anim_style">
+        <!-- 指定显示的动画xml -->
+        <item name="android:windowEnterAnimation">@anim/show_from_bottom</item>
+        <!-- 指定消失的动画xml -->
+        <item name="android:windowExitAnimation">@anim/hide_to_bottom</item>
+    </style>
+
+    <style name="appDivide">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/appDivide</item>
+    </style>
+
+
+</resources>
