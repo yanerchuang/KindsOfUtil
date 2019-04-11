@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.util.mylibs.MainActivity">
 
     <include layout="@layout/toolbar" />
-    <com.ywj.view.ShapeTextView
+    <com.ywj.util.view.ShapeTextView
         android:layout_width="wrap_content"
         android:text="aasdasd"
         app:solidColor="#00ff00"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>

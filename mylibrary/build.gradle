@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
+
 android {
     compileSdkVersion 28
 
@@ -51,19 +52,21 @@ allprojects {
         }
     }
 }
-publish {
-    userOrg = 'bluesky'     // bintray注册的用户名
-    repoName = 'maven'    // bintray仓库名
-
-    groupId = 'com.ywj'     // [groupId:artifactId:publishVersion]
-    artifactId = 'util'
-    publishVersion = '0.4.12'
-
-    desc = 'kinds of util'
-    website = 'https://github.com/yanerchuang'
-
-    //执行 gradlew clean build bintrayUpload -PbintrayUser=用户名 -PbintrayKey=秘钥 -PdryRun=false
-}
+//第一种
+//publish {
+//    userOrg = 'bluesky'     // bintray注册的用户名
+//    repoName = 'maven'    // bintray仓库名
+//
+//    groupId = 'com.ywj'     // [groupId:artifactId:publishVersion]
+//    artifactId = 'util'
+//    publishVersion = '0.4.16'
+//
+//    desc = 'kinds of util'
+//    website = 'https://github.com/yanerchuang'
+//
+//    //执行 gradlew clean build bintrayUpload -PbintrayUser=用户名 -PbintrayKey=秘钥 -PdryRun=false
+//    //https://www.jianshu.com/p/e21602730aef
+//}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -80,3 +83,33 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 //    implementation 'com.orhanobut:logger:2.2.0'
 }
+//第二种
+ext{
+    bintrayRepo = 'maven'  //创库名称
+    bintrayName = 'kutil'  //项目名称
+
+    publishedGroupId = 'com.ywj'   //groupid
+    libraryName = 'kutil'    //
+    artifact = 'kutil'
+    artifact_Id = 'kutil'
+    maturity ='Stable'     //成熟度  stable  development offical experimental
+    libraryDescription = 'kinds of util' //项目描述
+    /*项目地址或者issue地址*/
+    siteUrl = 'https://github.com/yanerchuang'
+    gitUrl = 'https://github.com/yanerchuang/KindsOfUtil.git'
+    issueUrl='https://github.com/yanerchuang/KindsOfUtil/issues'
+    libraryVersion = '0.4.21'    //版本号
+    alllabels = ['android','bintray']
+    /*一些开发者信息*/
+    developerId = 'ywjcoding'
+    developerName = 'ywj'
+    developerEmail = '302602464@qq.com'
+    /*一些开源信息*/
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+apply from: 'bintray.gradle'
+
+//gradlew install
+//gradlew bintrayUpload

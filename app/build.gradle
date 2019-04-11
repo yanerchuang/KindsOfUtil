@@ -26,6 +26,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-//    implementation 'com.ywj:util:0.4.11'
-    implementation project(':mylibrary')
+//    implementation 'com.ywj:util:0.4.16'
+    implementation 'com.ywj:kutil:0.4.21'
+//    implementation project(':mylibrary')
 }

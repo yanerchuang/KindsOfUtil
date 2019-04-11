@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.ywj.view.ShapeTextView
+            <com.ywj.util.view.ShapeTextView
                 android:id="@+id/tv_cancle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/appDivide" />
 
-            <com.ywj.view.ShapeTextView
+            <com.ywj.util.view.ShapeTextView
                 android:id="@+id/tv_confirm"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
