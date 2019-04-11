@@ -86,19 +86,19 @@ dependencies {
 //第二种
 ext{
     bintrayRepo = 'maven'  //创库名称
-    bintrayName = 'kutil'  //项目名称
+    bintrayName = 'util'  //项目名称
 
     publishedGroupId = 'com.ywj'   //groupid
-    libraryName = 'kutil'    //
-    artifact = 'kutil'
-    artifact_Id = 'kutil'
+    libraryName = 'util'    //
+    artifact = 'util'
+    artifact_Id = 'util'
     maturity ='Stable'     //成熟度  stable  development offical experimental
     libraryDescription = 'kinds of util' //项目描述
     /*项目地址或者issue地址*/
     siteUrl = 'https://github.com/yanerchuang'
     gitUrl = 'https://github.com/yanerchuang/KindsOfUtil.git'
     issueUrl='https://github.com/yanerchuang/KindsOfUtil/issues'
-    libraryVersion = '0.4.21'    //版本号
+    libraryVersion = '0.4.22'    //版本号
     alllabels = ['android','bintray']
     /*一些开发者信息*/
     developerId = 'ywjcoding'
@@ -111,5 +111,6 @@ ext{
 }
 apply from: 'bintray.gradle'
 
+//执行
 //gradlew install
 //gradlew bintrayUpload
