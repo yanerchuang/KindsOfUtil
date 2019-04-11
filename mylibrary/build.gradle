@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-//apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 28
@@ -52,21 +51,7 @@ allprojects {
         }
     }
 }
-//第一种
-//publish {
-//    userOrg = 'bluesky'     // bintray注册的用户名
-//    repoName = 'maven'    // bintray仓库名
-//
-//    groupId = 'com.ywj'     // [groupId:artifactId:publishVersion]
-//    artifactId = 'util'
-//    publishVersion = '0.4.16'
-//
-//    desc = 'kinds of util'
-//    website = 'https://github.com/yanerchuang'
-//
-//    //执行 gradlew clean build bintrayUpload -PbintrayUser=用户名 -PbintrayKey=秘钥 -PdryRun=false
-//    //https://www.jianshu.com/p/e21602730aef
-//}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -83,7 +68,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 //    implementation 'com.orhanobut:logger:2.2.0'
 }
-//第二种
+
 ext{
     bintrayRepo = 'maven'  //创库名称
     bintrayName = 'util'  //项目名称
@@ -111,6 +96,6 @@ ext{
 }
 apply from: 'bintray.gradle'
 
-//执行 111
+//执行
 //gradlew install
 //gradlew bintrayUpload
