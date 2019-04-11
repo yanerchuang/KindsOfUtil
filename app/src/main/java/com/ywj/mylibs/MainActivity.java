@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.ywj.adapter.MyAdapter;
+import com.ywj.util.LoggerUtil;
 import com.ywj.view.ShapeTextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,7 +13,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MyAdapter s;
-        ShapeTextView t;
+        LoggerUtil.init(this,"ccc",false,true);
+        LoggerUtil.e("dsasdasdasdadasdasdasd");
+        LoggerUtil.e("dsasdasdasdadasdasdasd");
+        LoggerUtil.d("dsasdasdasdadasdasdasd");
+        LoggerUtil.d("dsasdasdasdadasdasdasd");
+        LoggerUtil.wtf("dsasdasdasdadasdasdasd");
+        LoggerUtil.wtf("dsasdasdasdadasdasdasd");
     }
 }
