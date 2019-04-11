@@ -16,6 +16,7 @@ import com.ywj.dialog.LoadingDialog;
 import com.ywj.util.ActivityStackUtil;
 import com.ywj.util.DisPlayUtils;
 import com.ywj.util.LogUtil;
+import com.ywj.util.LoggerUtil;
 import com.ywj.util.NetUtil;
 import com.ywj.util.StatusBarUtils;
 import com.ywj.util.ToastUtil;
@@ -67,11 +68,11 @@ public abstract class BaseActivity extends AppCompatActivity   {
     }
 
     protected void logD(String msg) {
-        LogUtil.d(msg);
+        LoggerUtil.d(msg);
     }
 
     protected void logE(String msg) {
-        LogUtil.e(msg);
+        LoggerUtil.e(msg);
     }
 
     private void initToolBar() {

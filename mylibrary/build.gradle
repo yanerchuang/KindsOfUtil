@@ -4,7 +4,6 @@ android {
     compileSdkVersion 28
 
 
-
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
@@ -12,7 +11,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
 
+        ndk {
+            abiFilters "armeabi", "x86"
+        }
     }
 
     buildTypes {
@@ -27,6 +30,11 @@ android {
         abortOnError false
     }
 
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
 }
 
 allprojects {
@@ -36,7 +44,7 @@ allprojects {
         maven { url "https://jitpack.io" }
     }
     tasks.withType(Javadoc) {
-        options{
+        options {
             encoding "UTF-8"
             charSet 'UTF-8'
             links "http://docs.oracle.com/javase/7/docs/api"
@@ -49,7 +57,7 @@ publish {
 
     groupId = 'com.ywj'     // [groupId:artifactId:publishVersion]
     artifactId = 'util'
-    publishVersion = '0.4.11'
+    publishVersion = '0.4.12'
 
     desc = 'kinds of util'
     website = 'https://github.com/yanerchuang'
@@ -66,6 +74,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation "com.android.support:multidex:1.0.3"
 //    implementation 'com.github.bumptech.glide:glide:4.7.1'
 //    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
     implementation 'com.google.code.gson:gson:2.8.5'
