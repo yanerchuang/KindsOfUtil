@@ -16,7 +16,6 @@ public class MyApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
-
 //        initBugly();
     }
 
@@ -28,7 +27,6 @@ public class MyApplication extends MultiDexApplication {
     public static Context getAppContext() {
         return mContext;
     }
-
 
 
 }
