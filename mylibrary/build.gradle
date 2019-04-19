@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 //apply from: 'https://raw.githubusercontent.com/adwiv/android-fat-aar/master/fat-aar.gradle'
-apply plugin: "com.mobbeel.plugin"
+//apply plugin: "com.mobbeel.plugin"
+apply plugin: 'com.novoda.bintray-release'
 android {
     compileSdkVersion 28
 
@@ -50,16 +51,6 @@ allprojects {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
-
-        flatDir {
-            // 由于Library module中引用了 gif 库的 aar，在多 module 的情况下，
-            // 其他的module编译会报错，所以需要在所有工程的repositories
-            // 下把Library module中的libs目录添加到依赖关系中
-//            dirs project(':mylibrary2').file('libs')
-//            dirs 'mylibrary2/libs'
-            dirs 'libs'
-        }
-
     }
     tasks.withType(Javadoc) {
         options {
@@ -74,7 +65,7 @@ allprojects {
 
 
 dependencies {
-//    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'com.android.support:appcompat-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
@@ -87,92 +78,38 @@ dependencies {
 //    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
     implementation 'com.google.code.gson:gson:2.8.5'
 //    implementation 'com.orhanobut:logger:2.2.0'
-//    implementation project(':mylibrary2')
 
-//    embedded project(':mylibrary2')
-
-//    api "com.mobbeel:my-lib:1.0.0"  // <- Embed external dependency from any repository
-    api project(':mylibrary2')   // <- Embed internal dependency on workspace
-//    api (name:'mylibrary2-release',ext:'aar')   // <- Embed internal dependency on workspace
 }
-aarPlugin {
-    includeAllInnerDependencies true  // It's false for default
+//第一种
+publish {
+    userOrg = 'bluesky'     // bintray注册的用户名
+    repoName = 'maven'    // bintray仓库名
+    groupId = 'com.ywj'     // [groupId:artifactId:publishVersion]
+    artifactId = 'ywjutil'
+    publishVersion = '0.4.31'
+
+    //描述
+    desc = 'kinds of util'
+    website = 'https://github.com/yanerchuang'
+    issueTracker='https://github.com/yanerchuang/KindsOfUtil/issues2'
+    repository='https://github.com/yanerchuang/KindsOfUtil.git'
+
+
+    autoPublish=true //自动发布
+
+
+    licences = ['Apache-2.0']
+    uploadName = artifactId
+
+    //用户名 秘钥
+    bintrayUser=''
+    bintrayKey=''
+
+    //是否debug
+    dryRun=false
+
+//    publications=['maven']  //默认？
+
+    //执行 gradlew clean build bintrayUpload -PbintrayUser=用户名 -PbintrayKey=秘钥 -PdryRun=false
+    //https://www.jianshu.com/p/e21602730aef
 }
-
-task makeJar1(type: Copy) {
-    //删除存在的
-    delete 'build/libs/myjar.jar'
-    //设置拷贝的文件
-    from('build/intermediates/bundles/debug/')
-    //打进jar包后的文件目录
-    into('build/libs/')
-    //将classes.jar放入build/libs/目录下
-    //include ,exclude参数来设置过滤
-    //（我们只关心classes.jar这个文件）
-    include('classes.jar')
-    //重命名
-    rename ('classes.jar', 'myjar.jar')
-}
-
-makeJar1.dependsOn(build)
-
-
-//=======生成jar包脚本 start=============================================
-//打jar包
-def SDK_BASENAME = "target_sdk";
-def SDK_VERSION = "_V1.0";
-def sdkDestinationPath = "build";//生成jar存放目录
-//release目录下的classes.jar
-def releaseJar = file('build/intermediates/bundles/release/classes.jar')
-//将libs目录下的gson打入jar包
-//def thirdPartyJar = file('libs/gson-2.3.1.jar')
-//打包jar前先删除原先的jar
-task deleteBuild(type: Delete) {
-    delete sdkDestinationPath + SDK_BASENAME + SDK_VERSION + ".jar"
-}
-task makeJar(type: Jar) {
-    from zipTree(releaseJar)//导出混淆的jar
-    from project(':mylibrary2')
-//    from zipTree(thirdPartyJar)//将第三方jar包打入jar包
-//    from fileTree(dir: 'src/main', includes: ['assets/**'])//将assets目录打入jar包
-    exclude('**/BuildConfig.class')//排除不必要的class文件
-    baseName = SDK_BASENAME + SDK_VERSION
-    destinationDir = file(sdkDestinationPath)
-}
-makeJar.dependsOn(deleteBuild, build)
-
-//=======生成jar包脚本 end=============================================
-
-
-ext{
-    bintrayRepo = 'maven'  //创库名称
-    bintrayName = 'ywjutil'  //项目名称
-
-    publishedGroupId = 'com.ywj'   //groupid
-    libraryName = 'ywjutil'    //
-    artifact = 'ywjutil'
-    artifact_Id = 'ywjutil'
-    maturity ='Stable'     //成熟度  stable  development offical experimental
-    libraryDescription = 'kinds of util' //项目描述
-    /*项目地址或者issue地址*/
-    siteUrl = 'https://github.com/yanerchuang'
-    gitUrl = 'https://github.com/yanerchuang/KindsOfUtil.git'
-    issueUrl='https://github.com/yanerchuang/KindsOfUtil/issues'
-    libraryVersion = '0.4.27'    //版本号
-    alllabels = ['android','bintray']
-    /*一些开发者信息*/
-    developerId = 'ywjcoding'
-    developerName = 'ywj'
-    developerEmail = '302602464@qq.com'
-    /*一些开源信息*/
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-apply from: 'bintray.gradle'
-
-
-
-//执行1
-//gradlew install
-//gradlew bintrayUpload
