@@ -68,48 +68,38 @@ dependencies {
 //    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45'
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
-    implementation "com.android.support:multidex:1.0.3"
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45'
+    api "com.android.support:multidex:1.0.3"
 //    implementation 'com.github.bumptech.glide:glide:4.9.0'
 //    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
-    implementation 'com.google.code.gson:gson:2.8.5'
+    api 'com.google.code.gson:gson:2.8.5'
 //    implementation 'com.orhanobut:logger:2.2.0'
 
 }
-//第一种
 publish {
     userOrg = 'bluesky'     // bintray注册的用户名
     repoName = 'maven'    // bintray仓库名
     groupId = 'com.ywj'     // [groupId:artifactId:publishVersion]
     artifactId = 'ywjutil'
-    publishVersion = '0.4.31'
+    publishVersion = '0.4.38'
 
     //描述
     desc = 'kinds of util'
     website = 'https://github.com/yanerchuang'
-    issueTracker='https://github.com/yanerchuang/KindsOfUtil/issues2'
-    repository='https://github.com/yanerchuang/KindsOfUtil.git'
+    issueTracker = 'https://github.com/yanerchuang/KindsOfUtil/issues'
+    repository = 'https://github.com/yanerchuang/KindsOfUtil.git'
 
-
-    autoPublish=true //自动发布
-
-
-    licences = ['Apache-2.0']
-    uploadName = artifactId
-
-    //用户名 秘钥
-    bintrayUser=''
-    bintrayKey=''
-
-    //是否debug
-    dryRun=false
-
-//    publications=['maven']  //默认？
-
+//    autoPublish = true //自动发布
+//    licences = ['Apache-2.0']
+//    uploadName = artifactId
+//    https://github.com/novoda/bintray-release/wiki/Configuration-of-the-publish-closure
     //执行 gradlew clean build bintrayUpload -PbintrayUser=用户名 -PbintrayKey=秘钥 -PdryRun=false
-    //https://www.jianshu.com/p/e21602730aef
+}
+
+task x {
+    print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx2')
 }
