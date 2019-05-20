@@ -36,6 +36,13 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
+    packagingOptions {
+        exclude 'META-INF/NOTICE' // will not include NOTICE file
+        exclude 'META-INF/LICENSE' // will not include LICENSE file
+        exclude 'META-INF/INDEX.LIST' // will not include INDEX.LIST file
+        exclude 'META-INF/rxjava.properties' // will not include INDEX.LIST file
+        exclude 'META-INF/*' // will not include INDEX.LIST file
+    }
 
 
 //    让依赖的子模块不把 BuildConfig.class 打包进去，而打包模块可以保留
@@ -76,20 +83,36 @@ dependencies {
 
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45'
     api "com.android.support:multidex:1.0.3"
-    api 'com.github.bumptech.glide:glide:4.8.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    api 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     api 'com.google.code.gson:gson:2.8.5'
 
     api 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
 
-    api('com.squareup.retrofit2:retrofit:2.4.0')
-    api('com.squareup.retrofit2:converter-gson:2.4.0')
-    api('com.squareup.retrofit2:adapter-rxjava:2.4.0')
-    api('com.squareup.retrofit2:adapter-rxjava2:2.4.0')
-    api "com.squareup.okhttp3:okhttp:3.11.0"
-
+    api('com.squareup.retrofit2:retrofit:2.4.0') {
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+    }
+    api('com.squareup.retrofit2:converter-gson:2.4.0') {
+        exclude module: 'gson'
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+        exclude module: 'retrofit'
+    }
+    api('me.jessyan:rxerrorhandler:2.1.1')
+    api('io.reactivex.rxjava2:rxjava:2.2.3')
+    api('io.reactivex.rxjava2:rxandroid:2.1.0') {
+        exclude module: 'rxjava'
+    }
+    api('com.squareup.retrofit2:adapter-rxjava2:2.4.0') {
+        exclude module: 'rxjava'
+        exclude module: 'okhttp'
+        exclude module: 'retrofit'
+        exclude module: 'okio'
+    }
+    api 'com.squareup.okhttp3:okhttp:3.11.0'
 
 
 //    implementation 'com.orhanobut:logger:2.2.0'
@@ -101,7 +124,7 @@ publish {
     groupId = 'com.ywj'     // [groupId:artifactId:publishVersion]
     artifactId = 'ywjutil'
 //    publishVersion = '0.4.38'
-    publishVersion = '1.0.1'
+    publishVersion = '1.0.2'
 
     //描述
     desc = 'kinds of util'

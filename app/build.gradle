@@ -27,6 +27,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 //        implementation 'com.ywj:util:0.4.22'
 //        implementation 'com.ywj:ywjutil:0.4.38'
+//        implementation 'com.ywj:ywjutil:1.0.2'
     implementation project(':mylibrary')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 

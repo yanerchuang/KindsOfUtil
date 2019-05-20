@@ -222,7 +222,7 @@ public class StringUtils {
      * 返回值:Map
      */
     public static Map transStringToMap(String mapString) {
-        Map map = new HashMap();
+        Map<String,Object> map = new HashMap<>();
         StringTokenizer items;
         for (StringTokenizer entrys = new StringTokenizer(mapString, "^"); entrys.hasMoreTokens(); map.put(items.nextToken(),
                 Objects.requireNonNull(items.hasMoreTokens() ? items.nextToken() : null)))
