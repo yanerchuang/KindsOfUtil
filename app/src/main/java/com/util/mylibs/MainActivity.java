@@ -2,39 +2,31 @@ package com.util.mylibs;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import com.ywj.mylibs.R;
+import com.ywj.util.base.BaseActivity;
+import com.ywj.util.view.ShapeTextView;
 
-public class MainActivity extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class MainActivity extends BaseActivity {
+    @BindView(R.id.tv_asd)
+    ShapeTextView tvAsd;
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void setContentview() {
         setContentView(R.layout.activity_main);
     }
 
-    //    @Override
-//    protected void setContentview() {
-//
-////        LoggerUtil.init(this,"ccc",false,true);
-////        LoggerUtil.init(this, "ccc", true, true);
-////        LoggerUtil.e("dsasdasdasdadasdasdasd");
-////        LoggerUtil.e("dsasdasdasdadasdasdasd");
-////        LoggerUtil.d("dsasdasdasdadasdasdasd");
-////        LoggerUtil.d("dsasdasdasdadasdasdasd");
-////        LoggerUtil.wtf("dsasdasdasdadasdasdasd");
-////        LoggerUtil.wtf("dsasdasdasdadasdasdasd");
-////        logE("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-//    }
-//
-//    @Override
-//    protected void initView() {
-//
-//    }
-//
-//    @Override
-//    protected void loadData() {
-//
-//    }
+    @Override
+    protected void initView() {
+        tvAsd.setText("123");
+    }
+
+    @Override
+    protected void loadData() {
+
+    }
+
 }

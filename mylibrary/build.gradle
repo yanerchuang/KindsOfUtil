@@ -2,9 +2,9 @@ apply plugin: 'com.android.library'
 //apply from: 'https://raw.githubusercontent.com/adwiv/android-fat-aar/master/fat-aar.gradle'
 //apply plugin: "com.mobbeel.plugin"
 apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion 28
-
 
     defaultConfig {
         minSdkVersion 16
@@ -15,9 +15,9 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
 
-        ndk {
-            abiFilters "armeabi", "x86"
-        }
+//        ndk {
+//            abiFilters "armeabi", "x86"
+//        }
     }
 
     buildTypes {
@@ -70,13 +70,28 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
+
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45'
     api "com.android.support:multidex:1.0.3"
-//    implementation 'com.github.bumptech.glide:glide:4.9.0'
-//    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    api 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     api 'com.google.code.gson:gson:2.8.5'
+
+    api 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+
+    api('com.squareup.retrofit2:retrofit:2.4.0')
+    api('com.squareup.retrofit2:converter-gson:2.4.0')
+    api('com.squareup.retrofit2:adapter-rxjava:2.4.0')
+    api('com.squareup.retrofit2:adapter-rxjava2:2.4.0')
+    api "com.squareup.okhttp3:okhttp:3.11.0"
+
+
+
 //    implementation 'com.orhanobut:logger:2.2.0'
 
 }
@@ -85,7 +100,8 @@ publish {
     repoName = 'maven'    // bintray仓库名
     groupId = 'com.ywj'     // [groupId:artifactId:publishVersion]
     artifactId = 'ywjutil'
-    publishVersion = '0.4.38'
+//    publishVersion = '0.4.38'
+    publishVersion = '1.0.1'
 
     //描述
     desc = 'kinds of util'

@@ -20,6 +20,8 @@ import com.ywj.util.util.ToastUtil;
 import com.ywj.util.R;
 import com.ywj.util.util.ActivityStackUtil;
 
+import butterknife.ButterKnife;
+
 
 /**
  * author: ywj
@@ -38,7 +40,7 @@ public abstract class BaseActivity extends AppCompatActivity   {
         StatusBarUtils.initStatusBar(mContext);
 
         setContentview();
-//        ButterKnife.bind(this);
+        ButterKnife.bind(this);
         initToolBar();
         initView();
         if (NetUtil.NETWORN_NONE == NetUtil.getNetworkState(mContext)) {

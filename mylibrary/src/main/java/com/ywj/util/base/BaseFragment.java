@@ -22,6 +22,9 @@ import com.ywj.util.util.ToastUtil;
 import com.ywj.util.R;
 import com.ywj.util.util.LogUtil;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 
 /**
  * author: ywj
@@ -31,14 +34,14 @@ import com.ywj.util.util.LogUtil;
 public abstract class BaseFragment extends Fragment {
     public Context mContext;
     public boolean isInit;
-    //    private Unbinder unbinder;
+    private Unbinder unbinder;
     private View contentView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mContext = getActivity();
         contentView = inflater.inflate(setContentView(), null);
-//        unbinder = ButterKnife.bind(this, contentView);
+        unbinder = ButterKnife.bind(this, contentView);
         initView(contentView);
         initToolBar();
         isInit = true;
@@ -54,9 +57,9 @@ public abstract class BaseFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         isInit = false;
-//        if (unbinder != null) {
-//            unbinder.unbind();
-//        }
+        if (unbinder != null) {
+            unbinder.unbind();
+        }
 
         hideProgress();
     }
