@@ -4,6 +4,12 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.ywj.util.net.ErrorHandleSubscriber;
+import com.ywj.util.net.RetrofitManager;
+import com.ywj.util.net.TestApi;
+import com.ywj.util.util.LoggerUtil;
+import com.ywj.util.util.RxUtils;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -18,9 +24,15 @@ import static org.junit.Assert.*;
 public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.ywj.test", appContext.getPackageName());
+        RetrofitManager manager = RetrofitManager.getInstance();
+        manager.init("http://www.baidu.com");
+        RxUtils.loading(manager.getRetrofit().create(TestApi.class).getxxx("xx","xxx"))
+                .subscribe(new ErrorHandleSubscriber<Object>() {
+                    @Override
+                    public void onNext(Object o) {
+                       //
+                    }
+                });
     }
 }

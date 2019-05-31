@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_white_radius10"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="温馨提示"
+            android:textColor="@color/tv_333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:lineSpacingExtra="5dp"
+            android:maxLines="5"
+            android:padding="10dp"
+            android:textColor="@color/tv_666"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/appDivide" />
+
+        <LinearLayout
+            android:id="@+id/ll_cancle_confim_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.ywj.util.view.ShapeTextView
+                android:id="@+id/tv_cancle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="13dp"
+                android:text="取消"
+                android:textColor="@color/tv_666"
+                android:textSize="16sp"
+                app:bottomLeftRadius="10dp"
+                app:solidColor="@color/white"
+                app:solidTouchColor="@color/appDivide" />
+
+            <View
+                android:id="@+id/view_divide"
+                android:layout_width="2px"
+                android:layout_height="match_parent"
+                android:background="@color/appDivide" />
+
+            <com.ywj.util.view.ShapeTextView
+                android:id="@+id/tv_confirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="13dp"
+                android:text="确定"
+                android:textColor="@color/tv_666"
+                android:textSize="16sp"
+                app:bottomRightRadius="10dp"
+                app:solidColor="@color/white"
+                app:solidTouchColor="@color/appDivide" />
+        </LinearLayout>
+
+        <com.niceloo.teacher.view.ShapeTextView
+            android:id="@+id/tv_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="13dp"
+            android:text="确定"
+            android:textColor="@color/tv_666"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:bottomLeftRadius="10dp"
+            app:bottomRightRadius="10dp"
+            app:solidColor="@color/white"
+            app:solidTouchColor="@color/appDivide" />
+    </LinearLayout>
+</LinearLayout>

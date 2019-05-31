@@ -20,6 +20,8 @@ import com.ywj.util.util.ToastUtil;
 import com.ywj.util.R;
 import com.ywj.util.util.ActivityStackUtil;
 
+import org.greenrobot.eventbus.EventBus;
+
 import butterknife.ButterKnife;
 
 
@@ -28,8 +30,9 @@ import butterknife.ButterKnife;
  * created on: 2018/10/31 10:36
  * description:
  */
-public abstract class BaseActivity extends AppCompatActivity   {
+public abstract class BaseActivity extends AppCompatActivity {
     protected AppCompatActivity mContext;
+    protected boolean userEventBus = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,7 +50,9 @@ public abstract class BaseActivity extends AppCompatActivity   {
             new DisNetDialog(mContext).show();
         }
         loadData();
-//        EventBus.getDefault().register(this);
+        if (userEventBus) {
+            EventBus.getDefault().register(this);
+        }
     }
 
     protected abstract void setContentview();
@@ -61,7 +66,9 @@ public abstract class BaseActivity extends AppCompatActivity   {
         super.onDestroy();
         ActivityStackUtil.getInstance().popActivity(mContext);
         hideProgress();
-//        EventBus.getDefault().unregister(this);
+        if (userEventBus) {
+            EventBus.getDefault().unregister(this);
+        }
     }
 
     protected void showToast(String msg) {

@@ -13,6 +13,24 @@ import com.ywj.util.R;
  * description: 加载弹窗
  */
 public class LoadingDialog extends BaseDialog {
+    private static int loadingLayoutId = R.layout.dialog_loading_view;
+
+    private static OnLoadingListener loadingListener;
+
+    /**
+     * 可以实现自定义加载布局
+     * @param loadingLayoutId
+     */
+    public static void setLoadingLayoutId(int loadingLayoutId) {
+        LoadingDialog.loadingLayoutId = loadingLayoutId;
+    }
+    /**
+     * 可以实现自定义加载监听
+     * @param loadingListener
+     */
+    public static void setLoadingListener(OnLoadingListener loadingListener) {
+        LoadingDialog.loadingListener = loadingListener;
+    }
 
     private static LoadingDialog loadingDialog;
 
@@ -37,12 +55,21 @@ public class LoadingDialog extends BaseDialog {
 
     @Override
     protected int setContentView() {
-        return R.layout.dialog_loading_view;
+        return loadingLayoutId;
     }
 
     @Override
     protected void initView(View rootView) {
+        this.rootView = rootView;
         setCancelable(true);
         setCanceledOnTouchOutside(false);
+        if (loadingListener != null) {
+            loadingListener.onLoading(rootView);
+        }
+
+    }
+
+    public interface OnLoadingListener {
+        void onLoading(View rootView);
     }
 }

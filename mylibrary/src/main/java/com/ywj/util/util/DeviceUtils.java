@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.util.mylibs;
+package com.ywj.util.util;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -49,16 +49,7 @@ import java.lang.reflect.Field;
 import java.text.NumberFormat;
 import java.util.List;
 
-/**
- * ================================================
- * 获取设备常用信息和处理设备常用操作的工具类
- * <p>
- * Created by JessYan on 2016/3/15
- * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
- * <a href="https://github.com/JessYanCoding">Follow me</a>
- * ================================================
- */
-@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+
 public class DeviceUtils {
     // 手机网络类型
     public static final int NETTYPE_WIFI = 0x01;
@@ -77,10 +68,6 @@ public class DeviceUtils {
         GTE_ICS = Build.VERSION.SDK_INT >= 14;
         GTE_HC = Build.VERSION.SDK_INT >= 11;
         PRE_HC = Build.VERSION.SDK_INT < 11;
-    }
-
-    private DeviceUtils() {
-        throw new IllegalStateException("you can't instantiate me!");
     }
 
     /**

@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
-//apply plugin: 'com.aliyun.ams.emas-services'
 android {
     signingConfigs {
         debug {
@@ -9,6 +8,11 @@ android {
             keyAlias = 'app'
             keyPassword 'yecyec'
         }
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
     }
     compileSdkVersion 28
     defaultConfig {
@@ -57,7 +61,8 @@ dependencies {
     implementation 'com.aliyun.ams:alicloud-android-push:3.1.4'
     implementation 'com.aliyun.ams:alicloud-android-third-push:3.0.6@aar'
     implementation "com.android.support:multidex:1.0.3"
-
+//    implementation project(':mylibrary')
+    implementation 'com.ywj:kutil:1.0.1'
 }
 task x {
     print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1')
