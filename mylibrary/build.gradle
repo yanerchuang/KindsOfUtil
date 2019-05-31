@@ -114,9 +114,6 @@ dependencies {
     }
     api 'com.squareup.okhttp3:okhttp:3.11.0'
 
-
-//    implementation 'com.orhanobut:logger:2.2.0'
-
 }
 publish {
     userOrg = 'bluesky'     // bintray注册的用户名
